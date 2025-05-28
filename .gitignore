@@ -1,0 +1,11 @@
+/.vscode
+/examples/javaExample/javaexample/target
+/.idea
+/examples/jolieTest/target
+/Telemetry/target
+/devExamples/javaExample/javaexample/target
+/devExamples/jolieTest/target
+/.devcontainer/grafana-data
+/.devcontainer/loki-data
+/.devcontainer/signoz-data
+/telemetry/org

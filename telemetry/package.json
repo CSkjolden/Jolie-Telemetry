@@ -1,0 +1,27 @@
+{
+  "name": "jolie-telemetry",
+  "version": "0.0.2",
+  "description": "Telemetry package for jolie",
+  "repo": "",
+  "keywords": [],
+  "author": "CSkjolden",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "jpm install",
+    "clean-generate": "rimraf -g \"./src/main/java/*\" && npm run generate",
+    "generate": "jolie2java --translationTarget 0 --overwriteServices false --outputDirectory \"./src/main/java\" --sourcesPackage \".spec\" main.ol",
+    "prepack": "npx --package=@jolie/jpm -- jpm hooks:prepack",
+    "postpublish": "shx rm -rf lib"
+  },
+  "devDependencies": {
+    "@jolie/jpm": "^3.0.5",
+    "rimraf": "^5"
+  },
+  "jolie": {
+    "dependencies": {},
+    "maven": {
+      "dependencies": {},
+      "indirectDependencies": {}
+    }
+  }
+}

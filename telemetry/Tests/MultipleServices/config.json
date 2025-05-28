@@ -1,0 +1,103 @@
+{
+  "serviceName": "MyService2",
+  "defaultTracerName": "my-instrumentation",
+  "spanProcessors": [
+    {
+      "processorType": "batch",
+      "maxExportBatchSize": 512,
+      "maxQueueSize": 2048,
+      "scheduleDelayInMs": 1000,
+      "exporter": {
+        "exporterType": "grpc",
+        "endpoint": "http://host.docker.internal:4317",
+        "timeoutInSeconds": 30,
+        "connectTimeoutInSeconds": 30,
+        "headers": {
+          "Authorization": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "simple",
+      "exporter": {
+        "exporterType": "grpc",
+        "endpoint": "http://host.docker.internal:4317",
+        "timeoutInSeconds": 30,
+        "headers": {
+          "Authentication": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "batch",
+      "maxExportBatchSize": 512,
+      "maxQueueSize": 2048,
+      "scheduleDelayInMs": 1000,
+      "exporter": {
+        "exporterType": "http",
+        "endpoint": "http://host.docker.internal:4318/v1/traces",
+        "timeoutInSeconds": 30,
+        "connectTimeoutInSeconds": 30,
+        "headers": {
+          "Authorization": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "simple",
+      "exporter": {
+        "exporterType": "http",
+        "endpoint": "http://host.docker.internal:4318/v1/traces",
+        "timeoutInSeconds": 30,
+        "headers": {
+          "Authentication": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "debug"
+    }
+  ],
+  "sampler": {
+    "samplerType": "TraceIdRatioBased",
+    "ratio": 1
+  },
+  "cleanupConfig": {
+    "timeoutInSeconds": 10,
+    "addEvent": true,
+    "eventMessage": "Jolie instance shutdown. Cleaning up spans.",
+    "setError": true,
+    "endSpan": true
+  },
+  "logProcessors": [
+    {
+      "processorType": "batch",
+      "maxExportBatchSize": 512,
+      "maxQueueSize": 2048,
+      "scheduleDelayInMs": 1000,
+      "exporter": {
+        "exporterType": "http",
+        "endpoint": "http://host.docker.internal:4318/v1/logs",
+        "timeoutInSeconds": 30,
+        "connectTimeoutInSeconds": 30,
+        "headers": {
+          "Authorization": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "simple",
+      "exporter": {
+        "exporterType": "grpc",
+        "endpoint": "http://host.docker.internal:4317",
+        "timeoutInSeconds": 30,
+        "headers": {
+          "Authorization": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "debug"
+    }
+  ]
+}

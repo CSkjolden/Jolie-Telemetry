@@ -1,0 +1,17 @@
+{
+  "name": "jolie telemetry (multi-container)",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "service": "jolie",
+  "runServices": ["jaeger", "otel-collector", "grafana", "loki"],
+  "workspaceFolder": "/workspaces/BachelorCode",
+  "overrideCommand": true,
+  "runCmd": ["tail", "-f", "/dev/null"],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jolie.vscode-jolie",
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  }
+}

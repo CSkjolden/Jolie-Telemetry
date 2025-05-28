@@ -1,0 +1,5 @@
+src/*
+Target/*
+Tests/*
+lib/*
+pom.xml

@@ -1,0 +1,47 @@
+{
+  "serviceName": "MyService",
+  "defaultTracerName": "my-tracer",
+  "spanProcessors": [
+    {
+      "processorType": "batch",
+      "maxExportBatchSize": 512,
+      "maxQueueSize": 2048,
+      "scheduleDelayInMs": 1000,
+      "exporter": {
+        "exporterType": "grpc",
+        "endpoint": "http://localhost:4317",
+        "timeoutInSeconds": 30,
+        "connectTimeoutInSeconds": 30,
+        "headers": {
+          "Authorization": "Bearer token"
+        }
+      }
+    },
+    {
+      "processorType": "debug"
+    }
+  ],
+  "sampler": {
+    "samplerType": "TraceIdRatioBased",
+    "ratio": 1
+  },
+  "cleanupConfig": {
+    "timeoutInSeconds": 10,
+    "addEvent": true,
+    "eventMessage": "Jolie instance shutdown. Cleaning up spans.",
+    "setError": true,
+    "endSpan": true
+  },
+  "logProcessors": [
+    {
+      "processorType": "simple",
+      "exporter": {
+        "exporterType": "http",
+        "endpoint": "http://localhost:4318/v1/logs"
+      }
+    },
+    {
+      "processorType": "debug"
+    }
+  ]
+}
