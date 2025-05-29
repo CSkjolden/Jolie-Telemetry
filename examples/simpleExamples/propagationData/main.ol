@@ -1,6 +1,6 @@
-// jolie -Dtelemetry.config=../examples/config.json --service main ../examples/simpleExamples/propagationData/main.ol
-from ....telemetry.main import Telemetry as Telemetry
-from ....telemetry.main import PropagationData
+// Run in the outer examples directory with the command:
+// jolie -Dtelemetry.config=config.json --service main simpleExamples/propagationData/main.ol
+from jolie-telemetry import Telemetry, PropagationData
 
 interface continueServiceAPI {
   requestResponse: 

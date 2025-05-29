@@ -1,5 +1,6 @@
-//jolie -Dtelemetry.config=../examples/config.json ../examples/simpleExamples/attributesEventsAndLogs/main.ol
-from ....telemetry.main import Telemetry as Telemetry
+// Run in the outer examples directory with the command:
+// jolie -Dtelemetry.config=config.json simpleExamples/attributesEventsAndLogs/main.ol
+from jolie-telemetry import Telemetry as Telemetry
 
 service main( ) {
 	execution: single

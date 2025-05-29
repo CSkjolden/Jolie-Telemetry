@@ -1,7 +1,7 @@
-// jolie -Dtelemetry.config=../examples/config.json --service main ../examples/advancedExamples/multipleTracers/main.ol
+// Run in the outer examples directory with the command:
+// jolie -Dtelemetry.config=config.json --service main advancedExamples/multipleTracers/main.ol
 
-from ....telemetry.main import Telemetry as Telemetry
-from ....telemetry.main import PropagationData
+from jolie-telemetry import Telemetry, PropagationData
 
 type multiplicationRequest {
   a : int
