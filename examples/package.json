@@ -11,7 +11,7 @@
   "description": "",
   "jolie": {
     "dependencies": {
-      "jolie-telemetry": "0.0.2"
+      "jolie-telemetry": "1.0.0"
     },
     "maven": {
       "dependencies": {},

@@ -1,9 +1,9 @@
 {
   "name": "jolie-telemetry",
-  "version": "0.0.2",
-  "description": "Telemetry package for jolie",
-  "repo": "",
-  "keywords": [],
+  "version": "1.0.0",
+  "description": "Telemetry package for jolie. For more information, see the documentation at https://github.com/CSkjolden/Jolie-Telemetry",
+  "repo": "https://github.com/CSkjolden/Jolie-Telemetry",
+  "keywords": ["jolie", "telemetry", "observability"],
   "author": "CSkjolden",
   "license": "ISC",
   "scripts": {
