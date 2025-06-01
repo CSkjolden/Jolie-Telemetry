@@ -3,7 +3,7 @@
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "jolie",
   "runServices": ["jaeger", "otel-collector", "grafana", "loki"],
-  "workspaceFolder": "/workspaces/BachelorCode",
+  "workspaceFolder": "/workspaces/jolie-telemetry",
   "overrideCommand": true,
   "runCmd": ["tail", "-f", "/dev/null"],
   "customizations": {
